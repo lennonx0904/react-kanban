@@ -3,6 +3,7 @@ import React from "react";
 
 import Nav from "./component/Nav";
 import Board from "./component/Board";
+import Backlog from './component/Backlog'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <div className="view">
         <div className="view-wrapper">
           <Board />
+          <Backlog/>
         </div>
       </div>
     </>

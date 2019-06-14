@@ -9,16 +9,24 @@ const tasks = [
   { title: "補托福", date: "06/14" }
 ];
 
+const boardTitles = ["To-do", "Doing", "Completed", "QA", "Closed"];
+
 class Board extends React.Component {
   render() {
     return (
-      <div className="board-wrapper">
-        <div className="board">
-          <BoardTitle />
-          <div className="board-list">
-            <Card tasks={tasks} />
-          </div>
-        </div>
+      <div className="boards-wrapper">
+        {boardTitles.map((boardTitle, i) => {
+          return (
+            <div className="board-wrapper" key={i}>
+              <div className="board">
+                <BoardTitle boardTitle={boardTitle} />
+                <div className="board-list">
+                  <Card tasks={tasks} />
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }

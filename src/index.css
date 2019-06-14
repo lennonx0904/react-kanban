@@ -12,19 +12,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a:link {
-  text-decoration: none !important;
-}
-
 .center-justify {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* button {
-  outline: none;
-  border: none;
-} */
 
 .nav {
   width: 100%;
@@ -38,18 +30,26 @@ a:link {
   width: 100%;
   display: flex;
   justify-content: center;
+  font-size: 14px;
 }
 
 .view > .view-wrapper {
   width: 98%;
+  /* height: 100vh; */
   background-color: yellow;
 }
 
+.boards-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .board-wrapper {
-  width: 20%;
-  height: 90%;
+  width: 19%;
+  height: 50%;
   padding-top: 12px;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .board {
@@ -62,20 +62,60 @@ a:link {
 }
 
 .board > .board-title {
-  min-height: 30px;
-  background-color: #00ddcc;
+  font-size: 16px;
+  padding-bottom: 8px;
+  /* min-height: 20px;
+  margin-bottom: 4px; */
+  /* background-color: #00ddcc; */
 }
 
 .board > .board-list {
   display: flex;
   flex-direction: column;
+  max-height: 100%;
 }
 
 .card {
   width: 92%;
+  max-width: 200px;
+  max-height: fit-content;
   background-color: #ffffff;
   margin: 4px auto;
+  /* margin-bottom: 8px; */
   border-radius: 3px;
   padding: 8px;
   box-shadow: 3px 3px #a1a1a1;
+}
+
+.backlog-wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.backlog-title {
+  width: 98%;
+}
+
+.backlog-title-text {
+  width: 100px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 14px 14px 0 0;
+  background-color: #babcbf;
+}
+
+.backlog-content {
+  width: 98%;
+  max-height: 180px;
+  background-color: #dfe1e6;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
