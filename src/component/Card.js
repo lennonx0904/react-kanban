@@ -4,7 +4,8 @@ import { DragSource } from "react-dnd";
 
 const cardSource = {
   beginDrag(props) {
-    console.log("beginDrag", props);
+    // console.log("beginDrag", props);
+    // console.log("beginDragindex", props.index);
 
     // 會將所有 <Card /> 的 props 帶到 onDrop Component
     return { ...props };
@@ -19,13 +20,13 @@ const cardSource = {
     // When dropped on a compatible target, do something.
     // Read the original dragged item from getItem():
     const item = monitor.getItem();
-    console.log("item", item);
+    // console.log("item", item);
 
     // You may also read the drop result from the drop target
     // that handled the drop, if it returned an object from
     // its drop() method.
     const dropResult = monitor.getDropResult();
-    console.log("dropResult", dropResult);
+    // console.log("dropResult", dropResult);
 
     // This is a good place to call some Flux action
     // CardActions.moveCardToList(item.id, dropResult.listId)
@@ -43,12 +44,20 @@ const collect = (connect, monitor) => {
 };
 
 class Card extends React.Component {
+  findDropIndex = e => {
+    // console.log("可以嗎...", e.target.index);
+  };
   render() {
-    const { id,title, connectDragSource, isDragging } = this.props;
+    const { id, index, title, connectDragSource, isDragging } = this.props;
     return connectDragSource(
-      <div className="card" key={id}>
+      <div
+        className="card"
+        key={id}
+        index={index}
+        onDragOver={this.findDropIndex}
+      >
         <div>{title}</div>
-        {isDragging}
+        {/* {isDragging} */}
       </div>
     );
   }

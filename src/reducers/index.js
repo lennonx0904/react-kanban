@@ -41,6 +41,18 @@ const CardsReducer = (state = initState, action) => {
   switch (action.type) {
     case "ADD_NEW_CARD":
       return { ...state, backlog: [...state.backlog, action.payload] };
+    case "UPDATE_CARD_STATUS": {
+      console.log("HIHI", action.payload);
+      const { cardIndex, prevStatus, nextStatus } = action.payload;
+      console.log("rr", cardIndex, state[prevStatus], state[nextStatus]);
+      const card = state[prevStatus][cardIndex];
+      state[prevStatus].splice(cardIndex, 1);
+      state[nextStatus].push(card);
+      console.log("card", card, "prevArray", state[prevStatus]);
+
+      return { ...state, state };
+    }
+
     default:
       return state;
   }

@@ -6,7 +6,7 @@ import CardList from "./CardList";
 
 class Board extends React.Component {
   render() {
-    console.log("this.props.Board", this.props);
+    // console.log("this.props.Board", this.props);
     const { cards } = this.props;
     const statusTitle = Object.keys(cards).slice(0, 5);
 

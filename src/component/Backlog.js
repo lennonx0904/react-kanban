@@ -5,7 +5,9 @@ import Card from "./Card";
 
 class Backlog extends React.Component {
   render() {
-    const { cards } = this.props;
+      
+      const { cards } = this.props;
+      console.log(cards.backlog);
     return (
       <div className="backlog-wrapper">
         <div className="backlog-title">
@@ -25,11 +27,12 @@ class Backlog extends React.Component {
           </div>
         </div>
         <div className="backlog-content">
-          {cards.backlog.map(card => {
+          {cards.backlog.map((card, index) => {
             return (
               <Card
                 key={card.id}
                 id={card.id}
+                index={index}
                 title={card.title}
                 status={card.status}
               />

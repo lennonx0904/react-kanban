@@ -3,21 +3,41 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { findDOMNode } from "react-dom";
 import { DropTarget } from "react-dnd";
+import { updateCardStatus } from "../actions";
 import Card from "./Card";
 
 const dropTarget = {
   drop(props, monitor, component) {
-    // 此處已經可以得到 props(CardWall) 與 item (Card props)
     const card = monitor.getItem();
-    console.log("dropCard:", card); // card props
-    console.log("dropBoard", props); // card Board props
-    // const { id } = card;
-    // const { updateCardStatus, status: targetStatus } = props;
 
-    // 更新 Card status
-    // updateCardStatus(id, targetStatus);
+    // console.log("cardindex", card.index, "propsindex", props.index);
+    // console.log("pos", props);
+    // console.log("component", findDOMNode(component));
+
+    props.updateCardStatus(card.index, card.status, props.status);
 
     return { moved: true };
+  },
+  hover(props, monitor, component) {
+    // This is fired very often and lets you perform side effects
+    // in response to the hover. You can't handle enter and leave
+    // here—if you need them, put monitor.isOver() into collect() so you
+    // can just use componentDidUpdate() to handle enter/leave.
+    // You can access the coordinates if you need them
+    const clientOffset = monitor.getClientOffset();
+    const componentRect = findDOMNode(component).getBoundingClientRect();
+
+    // You can check whether we're over a nested drop target
+    const isJustOverThisOne = monitor.isOver({ shallow: true });
+
+    // You will receive hover() even for items for which canDrop() is false
+    const canDrop = monitor.canDrop();
+
+    // console.log("clientOffset", clientOffset);
+    // console.log("componentRect", componentRect);
+    // console.log("isJustOverThisOne", isJustOverThisOne);
+    // console.log("clientcanDropcanDropOffset", clientOffset);
+    // console.log("props", props);
   }
 };
 
@@ -35,17 +55,24 @@ const collect = (connect, monitor) => {
 };
 
 class CardList extends React.Component {
+  findDropIndex = e => {
+    console.log("可以嗎...", e);
+  };
   render() {
+    // console.log("this.props.CardList", this.props.cards);
     const { cards, status, connectDropTarget, isOver, canDrop } = this.props;
+    
     return connectDropTarget(
       <div className="card-list">
-        {cards[status].map(card => {
+        {cards[status].map((card, index) => {
           return (
             <Card
               key={card.id}
               id={card.id}
+              index={index}
               title={card.title}
               status={card.status}
+              findDropIndex={this.findDropIndex}
             />
           );
         })}
@@ -58,6 +85,9 @@ const mapStateToProps = state => {
 };
 
 export default compose(
-  connect(mapStateToProps),
+  connect(
+    mapStateToProps,
+    { updateCardStatus }
+  ),
   DropTarget("CARD", dropTarget, collect)
 )(CardList);
