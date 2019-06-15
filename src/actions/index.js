@@ -1,7 +1,7 @@
-export const addNewCard = card => {
+export const addNewCard = cardData => {
   return {
     type: "ADD_NEW_CARD",
-    payload: card
+    payload: cardData
   };
 };
 

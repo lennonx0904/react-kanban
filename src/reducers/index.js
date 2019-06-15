@@ -25,15 +25,13 @@ const initState = {
   closed: [
     { id: "14", title: "issue 14", status: "closed" },
     { id: "15", title: "issue 104", status: "closed" },
-    { id: "16", title: "issue 9527", status: "closed" },
-    { id: "17", title: "issue 5278", status: "closed" },
-    { id: "18", title: "issue 5278", status: "closed" }
+    { id: "16", title: "issue 9527", status: "closed" }
   ],
   backlog: [
-    { id: "19", title: "issue 1111", status: "backlog" },
-    { id: "20", title: "issue 104", status: "backlog" },
-    { id: "21", title: "issue 9527", status: "backlog" },
-    { id: "22", title: "issue 5278", status: "backlog" }
+    { id: "17", title: "issue 1111", status: "backlog" },
+    { id: "18", title: "issue 104", status: "backlog" },
+    { id: "19", title: "issue 9527", status: "backlog" },
+    { id: "20", title: "issue 5278", status: "backlog" }
   ]
 };
 
@@ -48,7 +46,7 @@ const CardsReducer = (state = initState, action) => {
       const card = state[prevStatus][cardIndex];
       state[prevStatus].splice(cardIndex, 1);
       state[nextStatus].push(card);
-      console.log("card", card, "prevArray", state[prevStatus]);
+      //   console.log("card", card, "prevArray", state[prevStatus]);
 
       return { ...state, state };
     }

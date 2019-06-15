@@ -35,10 +35,7 @@ const cardSource = {
 
 const collect = (connect, monitor) => {
   return {
-    // Call this function inside render()
-    // to let React DnD handle the drag events:
     connectDragSource: connect.dragSource(),
-    // You can ask the monitor about the current drag state:
     isDragging: monitor.isDragging()
   };
 };
@@ -54,8 +51,9 @@ class Card extends React.Component {
         className="card"
         key={id}
         index={index}
-        onDragOver={this.findDropIndex}
+        // onDragOver={this.findDropIndex}
       >
+        <i className="delete-btn far fa-trash-alt" />
         <div>{title}</div>
         {/* {isDragging} */}
       </div>

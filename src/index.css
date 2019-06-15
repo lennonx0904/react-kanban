@@ -12,10 +12,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  outline: none;
+  border: none;
+}
+
 .center-justify {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flex {
+  display: flex;
 }
 
 .nav {
@@ -63,7 +72,7 @@ body {
 
 .board > .board-title {
   font-size: 16px;
-  padding-bottom: 8px;
+  /* padding-bottom: 8px; */
   /* min-height: 20px;
   margin-bottom: 4px; */
   /* background-color: #00ddcc; */
@@ -85,43 +94,9 @@ body {
   border-radius: 3px;
   padding: 8px;
   box-shadow: 3px 3px #a1a1a1;
-}
-
-.backlog-wrapper {
-  width: 100%;
-  position: fixed;
-  bottom: 24px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
-.backlog-title {
-  width: 98%;
+.delete-btn {
 }
 
-.backlog-title-text {
-  width: 150px;
-  height: 28px;
-  line-height: 28px;
-  font-size: 16px;
-  text-align: center;
-  border-radius: 14px 14px 0 0;
-  background-color: #babcbf;
-  display: inline-block;
-  margin-right: 1px;
-}
-
-.backlog-title-text:nth-child(2) {
-  cursor: pointer;
-}
-
-.backlog-content {
-  width: 98%;
-  height: 180px;
-  background-color: #dfe1e6;
-  display: flex;
-  flex-wrap: wrap;
-  overflow: scroll;
-}

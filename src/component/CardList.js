@@ -32,12 +32,6 @@ const dropTarget = {
 
     // You will receive hover() even for items for which canDrop() is false
     const canDrop = monitor.canDrop();
-
-    // console.log("clientOffset", clientOffset);
-    // console.log("componentRect", componentRect);
-    // console.log("isJustOverThisOne", isJustOverThisOne);
-    // console.log("clientcanDropcanDropOffset", clientOffset);
-    // console.log("props", props);
   }
 };
 
@@ -55,24 +49,24 @@ const collect = (connect, monitor) => {
 };
 
 class CardList extends React.Component {
-  findDropIndex = e => {
-    console.log("可以嗎...", e);
-  };
+  //   findDropIndex = e => {
+  //     console.log("可以嗎...", e);
+  //   };
   render() {
     // console.log("this.props.CardList", this.props.cards);
     const { cards, status, connectDropTarget, isOver, canDrop } = this.props;
-    
+
     return connectDropTarget(
       <div className="card-list">
         {cards[status].map((card, index) => {
           return (
             <Card
-              key={card.id}
-              id={card.id}
+              key={index}
+            //   id={index}
               index={index}
               title={card.title}
               status={card.status}
-              findDropIndex={this.findDropIndex}
+              //   findDropIndex={this.findDropIndex}
             />
           );
         })}
