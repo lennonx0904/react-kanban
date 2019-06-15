@@ -25,8 +25,6 @@ class Backlog extends React.Component {
           </div>
         </div>
         <div className="backlog-content">
-          {/* <Card cards={this.props.cards.backlog} /> */}
-          {console.log("cards.backlog", cards.backlog)}
           {cards.backlog.map(card => {
             return (
               <Card
@@ -44,7 +42,6 @@ class Backlog extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("redux-state", state);
   return { cards: state.cards };
 };
 

@@ -44,7 +44,6 @@ const collect = (connect, monitor) => {
 
 class Card extends React.Component {
   render() {
-    // console.log("card", this.props);
     const { id,title, connectDragSource, isDragging } = this.props;
     return connectDragSource(
       <div className="card" key={id}>

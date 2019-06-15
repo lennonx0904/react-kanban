@@ -69,7 +69,7 @@ body {
   /* background-color: #00ddcc; */
 }
 
-.board > .board-list {
+.card-list {
   display: flex;
   flex-direction: column;
   max-height: 100%;
@@ -110,11 +110,10 @@ body {
   border-radius: 14px 14px 0 0;
   background-color: #babcbf;
   display: inline-block;
-  margin-right: 1px; 
+  margin-right: 1px;
 }
 
-
-.backlog-title-text:nth-child(2){
+.backlog-title-text:nth-child(2) {
   cursor: pointer;
 }
 
