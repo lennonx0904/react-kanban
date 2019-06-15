@@ -1,7 +1,7 @@
 import React from "react";
 
 const Card = props => {
-  console.log(props.tasks);
+  console.log('card',props.tasks);
 
   return (
     <>
@@ -9,7 +9,6 @@ const Card = props => {
         return (
           <div className="card" key={i}>
             <div>{task.title}</div>
-            <div>{task.date}</div>
           </div>
         );
       })}

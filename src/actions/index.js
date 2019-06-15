@@ -1,6 +1,6 @@
-export const test = data => {
-  return {
-    type: "TEST",
-    payload: data
+export const addNewTask = task => {
+    return {
+      type: "ADD_NEW_TASK",
+      payload: task
+    };
   };
-};

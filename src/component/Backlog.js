@@ -1,17 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import Card from "./Card";
-
-const tasks = [
-  { title: "遊戲基本介面", date: "06/20" },
-  { title: "連接 firebase 讀取資料", date: "06/22" },
-  { title: "選取音樂頁面 - 同時載入音樂播放", date: "06/24" },
-  { title: "遊戲基本介面", date: "06/20" },
-  { title: "連接 firebase 讀取資料", date: "06/22" },
-  { title: "遊戲基本介面", date: "06/20" },
-  { title: "連接 firebase 讀取資料", date: "06/22" },
-  { title: "遊戲基本介面", date: "06/20" },
-  { title: "連接 firebase 讀取資料", date: "06/22" }
-];
+import { addNewTask } from "../actions";
 
 class Backlog extends React.Component {
   render() {
@@ -23,17 +13,30 @@ class Backlog extends React.Component {
             className="backlog-title-text"
             onClick={() => {
               console.log("add new task");
+              this.props.addNewTask({
+                id: "33",
+                title: "new issue",
+                status: "backlog"
+              });
             }}
           >
             Add New Task
           </div>
         </div>
         <div className="backlog-content">
-          <Card tasks={tasks} />
+          <Card tasks={this.props.tasks.backlog} />
         </div>
       </div>
     );
   }
 }
 
-export default Backlog;
+const mapStateToProps = state => {
+  // console.log('redux-state',state);
+  return { tasks: state.tasks };
+};
+
+export default connect(
+  mapStateToProps,
+  { addNewTask }
+)(Backlog);

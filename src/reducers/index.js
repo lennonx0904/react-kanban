@@ -39,15 +39,15 @@ const initState = {
 
 const tasksReducer = (state = initState, action) => {
   switch (action.type) {
-    case "TEST":
-      return { ...state, record: action.payload };
+    case "ADD_NEW_TASK":
+      return { ...state, backlog: [...state.backlog, action.payload] };
     default:
       return state;
   }
 };
 
 export default combineReducers({
-    tasks: tasksReducer
+  tasks: tasksReducer
   //   todo: todoReducer,
   //   doing: doingReducer,
   //   completed: completedReducer,
