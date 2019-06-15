@@ -1,6 +1,6 @@
-export const addNewTask = task => {
+export const addNewCard = card => {
     return {
-      type: "ADD_NEW_TASK",
-      payload: task
+      type: "ADD_NEW_CARD",
+      payload: card
     };
   };

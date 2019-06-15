@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addNewCard } from "../actions";
 import Card from "./Card";
-import { addNewTask } from "../actions";
 
 class Backlog extends React.Component {
   render() {
+    const { cards } = this.props;
     return (
       <div className="backlog-wrapper">
         <div className="backlog-title">
@@ -12,19 +13,30 @@ class Backlog extends React.Component {
           <div
             className="backlog-title-text"
             onClick={() => {
-              console.log("add new task");
-              this.props.addNewTask({
+              console.log("add new card");
+              this.props.addNewCard({
                 id: "33",
                 title: "new issue",
                 status: "backlog"
               });
             }}
           >
-            Add New Task
+            Add New Card
           </div>
         </div>
         <div className="backlog-content">
-          <Card tasks={this.props.tasks.backlog} />
+          {/* <Card cards={this.props.cards.backlog} /> */}
+          {console.log("cards.backlog", cards.backlog)}
+          {cards.backlog.map(card => {
+            return (
+              <Card
+                key={card.id}
+                id={card.id}
+                title={card.title}
+                status={card.status}
+              />
+            );
+          })}
         </div>
       </div>
     );
@@ -32,11 +44,11 @@ class Backlog extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('redux-state',state);
-  return { tasks: state.tasks };
+  console.log("redux-state", state);
+  return { cards: state.cards };
 };
 
 export default connect(
   mapStateToProps,
-  { addNewTask }
+  { addNewCard }
 )(Backlog);
