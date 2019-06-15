@@ -102,13 +102,20 @@ body {
 }
 
 .backlog-title-text {
-  width: 100px;
+  width: 150px;
   height: 28px;
   line-height: 28px;
   font-size: 16px;
   text-align: center;
   border-radius: 14px 14px 0 0;
   background-color: #babcbf;
+  display: inline-block;
+  margin-right: 1px; 
+}
+
+
+.backlog-title-text:nth-child(2){
+  cursor: pointer;
 }
 
 .backlog-content {
