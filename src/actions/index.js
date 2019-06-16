@@ -11,3 +11,10 @@ export const updateCardStatus = (cardIndex, prevStatus, nextStatus) => {
     payload: { cardIndex, prevStatus, nextStatus }
   };
 };
+
+export const deleteCard = (index, status) => {
+  return {
+    type: "DELETE_CARD",
+    payload: { index, status }
+  };
+};

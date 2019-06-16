@@ -40,17 +40,18 @@ const CardsReducer = (state = initState, action) => {
     case "ADD_NEW_CARD":
       return { ...state, backlog: [...state.backlog, action.payload] };
     case "UPDATE_CARD_STATUS": {
-      console.log("HIHI", action.payload);
       const { cardIndex, prevStatus, nextStatus } = action.payload;
-      console.log("rr", cardIndex, state[prevStatus], state[nextStatus]);
+      // console.log("rr", cardIndex, state[prevStatus], state[nextStatus]);
       const card = state[prevStatus][cardIndex];
       state[prevStatus].splice(cardIndex, 1);
       state[nextStatus].push(card);
-      //   console.log("card", card, "prevArray", state[prevStatus]);
-
-      return { ...state, state };
+      return { ...state };
     }
-
+    case "DELETE_CARD": {
+      const { index, status } = action.payload;
+      state[status].splice(index, 1);
+      return { ...state };
+    }
     default:
       return state;
   }
@@ -58,10 +59,4 @@ const CardsReducer = (state = initState, action) => {
 
 export default combineReducers({
   cards: CardsReducer
-  //   todo: todoReducer,
-  //   doing: doingReducer,
-  //   completed: completedReducer,
-  //   qa: qaReducer,
-  //   closed: closedReducer,
-  //   backlog: backlogReducer
 });

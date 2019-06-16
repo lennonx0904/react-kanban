@@ -1,6 +1,8 @@
 import React from "react";
-// import {compose} from 'redux';
+import { compose } from "redux";
+import { connect } from "react-redux";
 import { DragSource } from "react-dnd";
+import { deleteCard } from "../actions";
 
 const cardSource = {
   beginDrag(props) {
@@ -41,11 +43,22 @@ const collect = (connect, monitor) => {
 };
 
 class Card extends React.Component {
-  findDropIndex = e => {
-    // console.log("可以嗎...", e.target.index);
+  getCardInfo = e => {
+    const index = e.target.getAttribute("index");
+    const status = e.target.getAttribute("status");
+    // console.log(index, status);
+    this.props.deleteCard(index, status)
   };
+
   render() {
-    const { id, index, title, connectDragSource, isDragging } = this.props;
+    const {
+      id,
+      index,
+      title,
+      status,
+      connectDragSource,
+      isDragging
+    } = this.props;
     return connectDragSource(
       <div
         className="card p-1 my-1"
@@ -54,16 +67,30 @@ class Card extends React.Component {
         // onDragOver={this.findDropIndex}
       >
         {/* <i className="delete-btn far fa-trash-alt" /> */}
-        <div>{title}
-        <button type="button" className="close" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <div>
+          {title}
+          <button
+            type="button"
+            className="close"
+            aria-label="Close"
+            onClick={this.getCardInfo}
+          >
+            <span aria-hidden="true" index={index} status={status}>
+              &times;
+            </span>
+          </button>
         </div>
-        
+
         {/* {isDragging} */}
       </div>
     );
   }
 }
 
-export default DragSource("CARD", cardSource, collect)(Card);
+export default compose(
+  connect(
+    null,
+    { deleteCard }
+  ),
+  DragSource("CARD", cardSource, collect)
+)(Card);
