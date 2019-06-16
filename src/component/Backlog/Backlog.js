@@ -19,7 +19,7 @@ class Backlog extends React.Component {
 
   render() {
     const { cards } = this.props;
-    console.log(cards.backlog);
+    // console.log(cards.backlog);
     return (
       <div className="backlog-wrapper container-fluid fixed-bottom mb-2">
         <Title showNewCard={this.showNewCard} />

@@ -6,7 +6,7 @@ import { deleteCard } from "../actions";
 
 const cardSource = {
   beginDrag(props) {
-    // console.log("beginDrag", props);
+    console.log("beginDrag", props);
     // console.log("beginDragindex", props.index);
 
     // 會將所有 <Card /> 的 props 帶到 onDrop Component

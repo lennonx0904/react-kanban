@@ -1,6 +1,7 @@
-/* .board-wrapper {
-  max-height: calc(100vh-260px);
-} */
+.board-wrapper {
+  /* max-height: calc(100vh-260px); */
+  background-color: blue;
+}
 
 .board {
   /* width: 100%; */

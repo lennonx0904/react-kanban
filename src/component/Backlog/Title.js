@@ -1,8 +1,6 @@
 import React from "react";
 
-const Title = props => {
-    console.log(props);
-    
+const Title = props => {    
   return (
     <div className="backlog-title ">
       <div className="backlog-title-text">Backlog</div>

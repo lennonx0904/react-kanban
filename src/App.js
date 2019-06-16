@@ -18,9 +18,13 @@ class App extends React.Component {
         <Nav />
         <div className="view">
           <div className="view-wrapper">
-            {cardStatus.map(status => {
-              return <Board key={status} status={status} />;
-            })}
+            <div className="boards-wrapper container-fluid">
+              <div className="row">
+                {cardStatus.map(status => {
+                  return <Board key={status} status={status} cards={cards[status]}/>;
+                })}
+              </div>
+            </div>
 
             <Backlog />
           </div>

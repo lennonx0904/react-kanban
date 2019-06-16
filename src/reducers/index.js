@@ -2,16 +2,16 @@ import { combineReducers } from "redux";
 
 const initState = {
   todo: [
-    { id: "1", title: "issue 1", status: "todo" },
-    { id: "2", title: "issue 2", status: "todo" },
-    { id: "3", title: "issue 3", status: "todo" },
-    { id: "4", title: "issue 4", status: "todo" }
+    // { id: "1", title: "issue 1", status: "todo" },
+    // { id: "2", title: "issue 2", status: "todo" },
+    // { id: "3", title: "issue 3", status: "todo" },
+    // { id: "4", title: "issue 4", status: "todo" }
   ],
   doing: [
-    { id: "5", title: "issue 5", status: "doing" },
-    { id: "6", title: "issue 6", status: "doing" },
-    { id: "7", title: "issue 7", status: "doing" },
-    { id: "8", title: "issue 8", status: "doing" }
+    // { id: "5", title: "issue 5", status: "doing" },
+    // { id: "6", title: "issue 6", status: "doing" },
+    // { id: "7", title: "issue 7", status: "doing" },
+    // { id: "8", title: "issue 8", status: "doing" }
   ],
   completed: [
     { id: "9", title: "issue 9", status: "completed" },
@@ -41,8 +41,8 @@ const CardsReducer = (state = initState, action) => {
       return { ...state, backlog: [...state.backlog, action.payload] };
     case "UPDATE_CARD_STATUS": {
       const { cardIndex, prevStatus, nextStatus } = action.payload;
-      // console.log("rr", cardIndex, state[prevStatus], state[nextStatus]);
       const card = state[prevStatus][cardIndex];
+      card.status = nextStatus;
       state[prevStatus].splice(cardIndex, 1);
       state[nextStatus].push(card);
       return { ...state };
