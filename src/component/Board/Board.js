@@ -1,31 +1,70 @@
 import React from "react";
 import { connect } from "react-redux";
+import { compose } from "redux";
+import { findDOMNode } from "react-dom";
+import { DropTarget } from "react-dnd";
+import { updateCardStatus } from "../../actions";
 
 import BoardTitle from "./BoardTitle";
+import Card from "../Card";
 import CardList from "./CardList";
 import "./board.css";
+
+const dropTarget = {
+  drop(props, monitor, component) {
+    const card = monitor.getItem();
+
+    console.log("cardindex", card.index, "propsindex", props.index);
+    console.log("pos", props);
+    console.log("component", findDOMNode(component));
+
+    props.updateCardStatus(card.index, card.status, props.status);
+
+    return { moved: true };
+  }
+};
+
+const collect = (connect, monitor) => {
+  return {
+    // Call this function inside render()
+    // to let React DnD handle the drag events:
+    connectDropTarget: connect.dropTarget(),
+    // You can ask the monitor about the current drag state:
+    isOver: monitor.isOver(),
+    isOverCurrent: monitor.isOver({ shallow: true }),
+    canDrop: monitor.canDrop(),
+    itemType: monitor.getItemType()
+  };
+};
 
 class Board extends React.Component {
   render() {
     // console.log("this.props.Board", this.props);
-    const { cards } = this.props;
-    const statusTitle = Object.keys(cards).slice(0, 5);
+    const { cards, status, connectDropTarget, isOver, canDrop } = this.props;
 
-    return (
-      <div className="boards-wrapper container-fluid">
+    // const { cards } = this.props;
+    // const statusTitle = Object.keys(cards).slice(0, 5);
+
+    return connectDropTarget(
+      <div className="boards-wrapper container-fluid" status={status}>
         <div className="row">
-          {" "}
-          {/*bootstrap */}
-          {statusTitle.map(status => {
-            return (
-              <div className="board-wrapper col p-1 mt-2 " key={status}>
-                <div className="board container-fluid p-2 rounded-lg overflow-auto max-vh-60">
-                  <BoardTitle boardTitle={status.toUpperCase()} />
-                  <CardList status={status} />
-                </div>
-              </div>
-            );
-          })}
+          <div className="board-wrapper col p-1 mt-2 " key={status}>
+            <div className="board container-fluid p-2 rounded-lg overflow-auto max-vh-60">
+              <BoardTitle boardTitle={status.toUpperCase()} />
+              {cards[status].map((card, index) => {
+                return (
+                  <Card
+                    key={index}
+                    //   id={index}
+                    index={index}
+                    title={card.title}
+                    status={card.status}
+                    //   findDropIndex={this.findDropIndex}
+                  />
+                );
+              })}
+            </div>
+          </div>{" "}
         </div>
       </div>
     );
@@ -36,4 +75,11 @@ const mapStateToProps = state => {
   return { cards: state.cards };
 };
 
-export default connect(mapStateToProps)(Board);
+// export default connect(mapStateToProps)(Board);
+export default compose(
+  connect(
+    mapStateToProps,
+    { updateCardStatus }
+  ),
+  DropTarget("CARD", dropTarget, collect)
+)(Board);

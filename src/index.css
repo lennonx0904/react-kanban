@@ -48,7 +48,15 @@ button {
   background-color: yellow;
 }
 
- /* .boards-wrapper {
+/* .delete-btn {
+  visibility: hidden;
+}
+
+.delete-btn:hover {
+  visibility: visible;
+} */
+
+/* .boards-wrapper {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -91,6 +99,3 @@ button {
   box-shadow: 3px 3px #a1a1a1;
   display: flex;
 }  */
-
-
-

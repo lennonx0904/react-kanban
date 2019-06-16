@@ -47,7 +47,7 @@ class Card extends React.Component {
     const index = e.target.getAttribute("index");
     const status = e.target.getAttribute("status");
     // console.log(index, status);
-    this.props.deleteCard(index, status)
+    this.props.deleteCard(index, status);
   };
 
   render() {
@@ -61,7 +61,7 @@ class Card extends React.Component {
     } = this.props;
     return connectDragSource(
       <div
-        className="card p-1 my-1"
+        className="card p-1 my-2"
         key={id}
         index={index}
         // onDragOver={this.findDropIndex}
@@ -75,7 +75,11 @@ class Card extends React.Component {
             aria-label="Close"
             onClick={this.getCardInfo}
           >
-            <span aria-hidden="true" index={index} status={status}>
+            <span
+              aria-hidden="true"
+              index={index}
+              status={status}
+            >
               &times;
             </span>
           </button>

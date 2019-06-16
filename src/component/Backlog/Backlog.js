@@ -18,8 +18,6 @@ class Backlog extends React.Component {
   };
 
   render() {
-    console.log("state", this.state);
-
     const { cards } = this.props;
     console.log(cards.backlog);
     return (

@@ -1,25 +1,40 @@
 import React from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
+
 import { DragDropContext } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
-
-// import "./App.css";
 
 import Nav from "./component/Nav";
 import Board from "./component/Board/Board";
 import Backlog from "./component/Backlog/Backlog";
 
-const App = () => {
-  return (
-    <>
-      <Nav />
-      <div className="view">
-        <div className="view-wrapper">
-          <Board />
-          <Backlog />
+class App extends React.Component {
+  render() {
+    const { cards } = this.props;
+    const cardStatus = Object.keys(cards).slice(0, 5);
+    return (
+      <>
+        <Nav />
+        <div className="view">
+          <div className="view-wrapper">
+            {cardStatus.map(status => {
+              return <Board key={status} status={status} />;
+            })}
+
+            <Backlog />
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return { cards: state.cards };
 };
 
-export default DragDropContext(HTML5Backend)(App);
+export default compose(
+  connect(mapStateToProps),
+  DragDropContext(HTML5Backend)
+)(App);
