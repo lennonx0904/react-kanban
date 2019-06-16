@@ -19,7 +19,7 @@ class AddNewCard extends React.Component {
 
   render() {
     return (
-      <div className="add-card mx-2">
+      <div className="card add-card my-2">
         <input
           type="text"
           placeholder="Card Title"

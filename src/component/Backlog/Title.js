@@ -4,8 +4,6 @@ import { showNewCard } from "../../actions";
 
 class Title extends React.Component {
   render() {
-    console.log("kmook", this.props.showNewCard);
-
     return (
       <div className="backlog-title ">
         <div className="backlog-title-text">Backlog</div>

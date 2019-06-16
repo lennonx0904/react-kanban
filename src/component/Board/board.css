@@ -3,29 +3,23 @@
   height: 50px;
   font-size: 32px;
   color: #ffffff;
-  background-color: #1c76f5;
+  background-color: #0094f7;
 }
 
 .view {
   width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   font-size: 14px;
+  background-color: rgba(84, 162, 252, 0.7);
 }
 
 .view > .view-wrapper {
   width: 98%;
-  /* height: 100vh; */
-  background-color: yellow;
-}
-
-.board-wrapper {
-  /* max-height: calc(100vh-260px); */
-  /* background-color: blue; */
 }
 
 .board {
-  /* position: relative; */
   background-color: #dfe1e6;
 }
 .board-title {
@@ -41,18 +35,10 @@
 }
 
 .card {
-  /* height: fit-content;
-  min-width: 150px; */
+  padding-left: 12px;
   box-shadow: 3px 3px #a1a1a1;
-
-  /* width: 92%;
-  max-height: fit-content;
-  background-color: #ffffff;
-  margin: 4px auto;
-  border-radius: 3px;
-  padding: 8px;
-  display: flex; */
 }
+
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .board-wrapper {
@@ -73,15 +59,10 @@
   }
 }
 
-/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
-  /* .view > .view-wrapper {
-    height: calc(100vh-50px);
-  } */
   .board-wrapper {
     height: 45vh;
     width: 30%;
-    background-color: rebeccapurple;
   }
   .board {
     max-height: 45vh;
@@ -89,13 +70,9 @@
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-  /* .view > .view-wrapper {
-    height: calc(100vh-50px);
-  } */
   .board-wrapper {
     height: 45vh;
     width: 30%;
-    background-color: rebeccapurple;
   }
   .board {
     max-height: 45vh;
@@ -103,15 +80,11 @@
 }
 
 @media (max-width: 575px) {
-  /* .view > .view-wrapper {
-    height: calc(100vh-50px);
-  } */
   .board-wrapper {
-    height: 45vh;
+    height: 32vh;
     width: 48%;
-    background-color: rebeccapurple;
   }
   .board {
-    max-height: 45vh;
+    max-height: 30vh;
   }
 }

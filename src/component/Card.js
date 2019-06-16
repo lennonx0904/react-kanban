@@ -6,10 +6,6 @@ import { deleteCard } from "../actions";
 
 const cardSource = {
   beginDrag(props) {
-    console.log("beginDrag", props);
-    // console.log("beginDragindex", props.index);
-
-    // 會將所有 <Card /> 的 props 帶到 onDrop Component
     return { ...props };
   }
 };
@@ -25,19 +21,18 @@ class Card extends React.Component {
   getCardInfo = e => {
     const index = e.target.getAttribute("index");
     const status = e.target.getAttribute("status");
-    // console.log(index, status);
     this.props.deleteCard(index, status);
   };
 
   render() {
     const { id, index, title, status, connectDragSource } = this.props;
     return connectDragSource(
-      <div className="card p-1 my-2" key={id} index={index}>
+      <div className="card py-1 my-2" key={id} index={index}>
         <div>
           {title}
           <button
             type="button"
-            className="close"
+            className="close pr-1"
             aria-label="Close"
             onClick={this.getCardInfo}
           >
