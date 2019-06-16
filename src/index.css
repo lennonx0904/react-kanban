@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -25,7 +25,7 @@ button {
 
 .flex {
   display: flex;
-}
+} */
 
 .nav {
   width: 100%;
@@ -48,7 +48,7 @@ button {
   background-color: yellow;
 }
 
-.boards-wrapper {
+ /* .boards-wrapper {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -58,7 +58,6 @@ button {
   width: 19%;
   height: 50%;
   padding-top: 12px;
-  /* background-color: red; */
 }
 
 .board {
@@ -72,10 +71,7 @@ button {
 
 .board > .board-title {
   font-size: 16px;
-  /* padding-bottom: 8px; */
-  /* min-height: 20px;
-  margin-bottom: 4px; */
-  /* background-color: #00ddcc; */
+  
 }
 
 .card-list {
@@ -90,13 +86,11 @@ button {
   max-height: fit-content;
   background-color: #ffffff;
   margin: 4px auto;
-  /* margin-bottom: 8px; */
   border-radius: 3px;
   padding: 8px;
   box-shadow: 3px 3px #a1a1a1;
   display: flex;
-}
+}  */
 
-.delete-btn {
-}
+
 

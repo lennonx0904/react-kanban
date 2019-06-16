@@ -1,4 +1,4 @@
-.backlog-wrapper {
+/* .backlog-wrapper {
   width: 100%;
   position: fixed;
   bottom: 24px;
@@ -6,11 +6,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.backlog-title {
+/* .backlog-title {
   width: 98%;
-}
+} */
 
 .backlog-title-text {
   width: 150px;
@@ -29,11 +29,11 @@
 }
 
 .backlog-content {
-  width: 98%;
+  /* width: 98%; */
   height: 180px;
   background-color: #dfe1e6;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
   overflow: scroll;
 }
 

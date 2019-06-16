@@ -48,13 +48,18 @@ class Card extends React.Component {
     const { id, index, title, connectDragSource, isDragging } = this.props;
     return connectDragSource(
       <div
-        className="card"
+        className="card p-1 my-1"
         key={id}
         index={index}
         // onDragOver={this.findDropIndex}
       >
-        <i className="delete-btn far fa-trash-alt" />
-        <div>{title}</div>
+        {/* <i className="delete-btn far fa-trash-alt" /> */}
+        <div>{title}
+        <button type="button" className="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        
         {/* {isDragging} */}
       </div>
     );

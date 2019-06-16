@@ -4,7 +4,7 @@ const Title = props => {
     console.log(props);
     
   return (
-    <div className="backlog-title">
+    <div className="backlog-title ">
       <div className="backlog-title-text">Backlog</div>
       <div
         className="backlog-title-text"

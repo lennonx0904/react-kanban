@@ -23,9 +23,9 @@ class Backlog extends React.Component {
     const { cards } = this.props;
     console.log(cards.backlog);
     return (
-      <div className="backlog-wrapper">
+      <div className="backlog-wrapper container-fluid fixed-bottom mb-2">
         <Title showNewCard={this.showNewCard} />
-        <div className="backlog-content">
+        <div className="backlog-content d-flex flex-wrap container-fluid p-0">
           {cards.backlog.map((card, index) => {
             return (
               <Card

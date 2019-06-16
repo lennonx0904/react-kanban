@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import { findDOMNode } from "react-dom";
 import { DropTarget } from "react-dnd";
-import { updateCardStatus } from "../actions";
-import Card from "./Card";
+import { updateCardStatus } from "../../actions";
+import Card from "../Card";
 
 const dropTarget = {
   drop(props, monitor, component) {

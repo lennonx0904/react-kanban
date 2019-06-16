@@ -1,0 +1,26 @@
+/* .board-wrapper {
+  max-height: calc(100vh-260px);
+} */
+
+.board {
+  /* width: 100%; */
+  /* border-radius: 5px; */
+  /* padding-top: 8px;
+    display: flex;
+    flex-direction: column; */
+  max-height: 60vh;
+  background-color: #dfe1e6;
+}
+
+.card {
+  max-width: 200px;
+  box-shadow: 3px 3px #a1a1a1;
+
+  /* width: 92%;
+  max-height: fit-content;
+  background-color: #ffffff;
+  margin: 4px auto;
+  border-radius: 3px;
+  padding: 8px;
+  display: flex; */
+}

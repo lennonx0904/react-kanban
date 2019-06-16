@@ -5,7 +5,7 @@ import HTML5Backend from "react-dnd-html5-backend";
 // import "./App.css";
 
 import Nav from "./component/Nav";
-import Board from "./component/Board";
+import Board from "./component/Board/Board";
 import Backlog from "./component/Backlog/Backlog";
 
 const App = () => {
