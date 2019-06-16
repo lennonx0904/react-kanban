@@ -7,23 +7,23 @@ import Title from "./Title";
 import "./backlog.css";
 
 class Backlog extends React.Component {
-  state = { NewCard: false };
+  // state = { NewCard: false };
 
-  showNewCard = () => {
-    this.setState({ NewCard: true });
-  };
+  // showNewCard = () => {
+  //   this.setState({ NewCard: true });
+  // };
 
-  hideNewCard = () => {
-    this.setState({ NewCard: false });
-  };
+  // hideNewCard = () => {
+  //   this.setState({ NewCard: false });
+  // };
 
   render() {
-    const { cards } = this.props;
-    // console.log(cards.backlog);
+    const { cards, showNewCard } = this.props;
+    console.log('cards, showNewCard ', showNewCard );
     return (
       <div className="backlog-wrapper container-fluid fixed-bottom mb-2">
         <Title showNewCard={this.showNewCard} />
-        <div className="backlog-content d-flex flex-wrap container-fluid p-0">
+        <div className="backlog-content d-flex flex-wrap  p-0 ">
           {cards.backlog.map((card, index) => {
             return (
               <Card
@@ -35,9 +35,7 @@ class Backlog extends React.Component {
               />
             );
           })}
-          {this.state.NewCard ? (
-            <AddNewCard hideNewCard={this.hideNewCard} />
-          ) : null}
+          {showNewCard ? <AddNewCard /> : null}
         </div>
       </div>
     );
@@ -45,7 +43,7 @@ class Backlog extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { cards: state.cards };
+  return { cards: state.cards, showNewCard: state.showNewCard };
 };
 
 export default connect(

@@ -2,16 +2,16 @@ import { combineReducers } from "redux";
 
 const initState = {
   todo: [
-    // { id: "1", title: "issue 1", status: "todo" },
-    // { id: "2", title: "issue 2", status: "todo" },
-    // { id: "3", title: "issue 3", status: "todo" },
-    // { id: "4", title: "issue 4", status: "todo" }
+    { id: "1", title: "issue 1", status: "todo" },
+    { id: "2", title: "issue 2", status: "todo" },
+    { id: "3", title: "issue 3", status: "todo" },
+    { id: "4", title: "issue 4", status: "todo" }
   ],
   doing: [
-    // { id: "5", title: "issue 5", status: "doing" },
-    // { id: "6", title: "issue 6", status: "doing" },
-    // { id: "7", title: "issue 7", status: "doing" },
-    // { id: "8", title: "issue 8", status: "doing" }
+    { id: "5", title: "issue 5", status: "doing" },
+    { id: "6", title: "issue 6", status: "doing" },
+    { id: "7", title: "issue 7", status: "doing" },
+    { id: "8", title: "issue 8", status: "doing" }
   ],
   completed: [
     { id: "9", title: "issue 9", status: "completed" },
@@ -48,15 +48,25 @@ const CardsReducer = (state = initState, action) => {
       return { ...state };
     }
     case "DELETE_CARD": {
-      const { index, status } = action.payload;      
-      state[status].splice(index, 1);      
-      return { ...state};
+      const { index, status } = action.payload;
+      state[status].splice(index, 1);
+      return { ...state };
     }
     default:
       return state;
   }
 };
 
+const showNewCardReducer = (state = false, action) => {
+  switch (action.type) {
+    case "SHOW_NEW_CARD":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
-  cards: CardsReducer
+  cards: CardsReducer,
+  showNewCard: showNewCardReducer
 });

@@ -1,3 +1,10 @@
+export const showNewCard = boolean=>{
+  return {
+    type: "SHOW_NEW_CARD",
+    payload: boolean
+  };
+}
+
 export const addNewCard = cardData => {
   return {
     type: "ADD_NEW_CARD",
@@ -18,3 +25,5 @@ export const deleteCard = (index, status) => {
     payload: { index, status }
   };
 };
+
+

@@ -1,19 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
+import { showNewCard } from "../../actions";
 
-const Title = props => {    
-  return (
-    <div className="backlog-title ">
-      <div className="backlog-title-text">Backlog</div>
-      <div
-        className="backlog-title-text"
-        onClick={() => {
-          props.showNewCard();
-        }}
-      >
-        Add New Card
+class Title extends React.Component {
+  render() {
+    console.log("kmook", this.props.showNewCard);
+
+    return (
+      <div className="backlog-title ">
+        <div className="backlog-title-text">Backlog</div>
+        <div
+          className="backlog-title-text"
+          onClick={() => {
+            this.props.showNewCard(true);
+          }}
+        >
+          Add New Card
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default Title;
+export default connect(
+  null,
+  { showNewCard }
+)(Title);

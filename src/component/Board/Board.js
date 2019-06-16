@@ -6,7 +6,9 @@ import { DropTarget } from "react-dnd";
 import { updateCardStatus } from "../../actions";
 import BoardTitle from "./BoardTitle";
 import Card from "../Card";
+import AddNewCard from "../Backlog/AddNewCard";
 import "./board.css";
+// import plus from "../../img/plus.png";
 
 const dropTarget = {
   drop(props, monitor, component) {
@@ -40,20 +42,23 @@ class Board extends React.Component {
   render() {
     const { cards, status, connectDropTarget } = this.props;
     return connectDropTarget(
-      <div className="board-wrapper col p-1 mt-2">
+      <div className="board-wrapper px-xl-3 px-md-2 mt-2">
         <div className="board container-fluid p-2 rounded-lg overflow-auto max-vh-60">
           <BoardTitle boardTitle={status.toUpperCase()} />
-          {cards[status].map((card, index) => {
-            return (
-              <Card
-                key={index}
-                //   id={index}
-                index={index}
-                title={card.title}
-                status={card.status}
-              />
-            );
-          })}
+          <div className="card-list">
+            {cards[status].map((card, index) => {
+              return (
+                <Card
+                  key={index}
+                  //   id={index}
+                  index={index}
+                  title={card.title}
+                  status={card.status}
+                />
+              );
+            })}
+            {status === "backlog" ? <AddNewCard /> : null}
+          </div>
         </div>
       </div>
     );
