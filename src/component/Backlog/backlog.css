@@ -1,5 +1,5 @@
 .backlog-title-text {
-  width: 150px;
+  width: 180px;
   height: 28px;
   line-height: 28px;
   font-size: 16px;
@@ -7,10 +7,14 @@
   border-radius: 14px 14px 0 0;
   background-color: #babcbf;
   display: inline-block;
-  margin-right: 1px;
+  position: relative;
 }
 
-.backlog-title-text:nth-child(2) {
+.backlog-title-text > img {
+  width: 22px;
+  position: absolute;
+  top: 3px;
+  right: 20px;
   cursor: pointer;
 }
 
