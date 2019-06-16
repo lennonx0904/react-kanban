@@ -2,7 +2,8 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { DragDropContext } from "react-dnd";
-import HTML5Backend from "react-dnd-html5-backend";
+import MultiBackend from "react-dnd-multi-backend";
+import HTML5toTouch from "react-dnd-multi-backend/lib/HTML5toTouch";
 
 import Nav from "./component/Nav";
 import Board from "./component/Board/Board";
@@ -15,7 +16,7 @@ class App extends React.Component {
     if (window.innerWidth > 991) {
       cardStatus = Object.keys(cards).slice(0, 5);
     }
-    
+
     return (
       <>
         <Nav />
@@ -40,5 +41,5 @@ const mapStateToProps = state => {
 
 export default compose(
   connect(mapStateToProps),
-  DragDropContext(HTML5Backend)
+  DragDropContext(MultiBackend(HTML5toTouch))
 )(App);
