@@ -1,7 +1,6 @@
 import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
-
 import { DragDropContext } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
 
@@ -21,11 +20,10 @@ class App extends React.Component {
             <div className="boards-wrapper container-fluid">
               <div className="row">
                 {cardStatus.map(status => {
-                  return <Board key={status} status={status} cards={cards[status]}/>;
+                  return <Board key={status} status={status} />;
                 })}
               </div>
             </div>
-
             <Backlog />
           </div>
         </div>

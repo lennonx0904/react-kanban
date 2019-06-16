@@ -11,15 +11,13 @@ class AddNewCard extends React.Component {
 
   submitHandler = () => {
     const title = this.state.title;
+    if(title === '') return;
     const data = { title: title, status: "backlog" };
     this.props.addNewCard(data);
     this.props.hideNewCard();
   };
 
   render() {
-    console.log(this.state);
-    console.log("2222", this.props);
-
     return (
       <div className="card add-card">
         <input
@@ -28,9 +26,9 @@ class AddNewCard extends React.Component {
           name="title"
           onChange={this.changeInputState}
         />
-        <div className="flex">
-          <button onClick={this.submitHandler}>submit</button>
-          <button onClick={this.props.hideNewCard}>X</button>
+        <div className="flex justify-content-around">
+          <button onClick={this.submitHandler} className='btn btn-primary btn-sm mx-3'>submit</button>
+          <button onClick={this.props.hideNewCard} className='btn btn-primary btn-sm mx-3'>cancel</button>
         </div>
       </div>
     );

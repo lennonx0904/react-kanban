@@ -7,7 +7,6 @@ const Title = props => {
       <div
         className="backlog-title-text"
         onClick={() => {
-          console.log("add new card");
           props.showNewCard();
         }}
       >

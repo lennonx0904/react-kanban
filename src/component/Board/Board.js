@@ -4,10 +4,8 @@ import { compose } from "redux";
 import { findDOMNode } from "react-dom";
 import { DropTarget } from "react-dnd";
 import { updateCardStatus } from "../../actions";
-
 import BoardTitle from "./BoardTitle";
 import Card from "../Card";
-import CardList from "./CardList";
 import "./board.css";
 
 const dropTarget = {
@@ -40,13 +38,12 @@ const collect = (connect, monitor) => {
 
 class Board extends React.Component {
   render() {
-    // console.log("this.props.Board", this.props);
-    const { cards, status, connectDropTarget, isOver, canDrop } = this.props;
+    const { cards, status, connectDropTarget } = this.props;
     return connectDropTarget(
       <div className="board-wrapper col p-1 mt-2">
         <div className="board container-fluid p-2 rounded-lg overflow-auto max-vh-60">
           <BoardTitle boardTitle={status.toUpperCase()} />
-          {cards.map((card, index) => {
+          {cards[status].map((card, index) => {
             return (
               <Card
                 key={index}
@@ -63,14 +60,13 @@ class Board extends React.Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return { cards: state.cards };
-// };
+const mapStateToProps = state => {
+  return { cards: state.cards };
+};
 
-// export default connect(mapStateToProps)(Board);
 export default compose(
   connect(
-    null,
+    mapStateToProps,
     { updateCardStatus }
   ),
   DropTarget("CARD", dropTarget, collect)

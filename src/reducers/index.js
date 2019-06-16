@@ -48,9 +48,9 @@ const CardsReducer = (state = initState, action) => {
       return { ...state };
     }
     case "DELETE_CARD": {
-      const { index, status } = action.payload;
-      state[status].splice(index, 1);
-      return { ...state };
+      const { index, status } = action.payload;      
+      state[status].splice(index, 1);      
+      return { ...state};
     }
     default:
       return state;
