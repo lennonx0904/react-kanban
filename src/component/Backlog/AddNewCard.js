@@ -34,7 +34,9 @@ class AddNewCard extends React.Component {
             submit
           </button>
           <button
-            onClick={this.props.showNewCard(false)}
+            onClick={() => {
+              this.props.showNewCard(false);
+            }}
             className="btn btn-primary btn-sm mx-2"
           >
             cancel
@@ -47,5 +49,5 @@ class AddNewCard extends React.Component {
 
 export default connect(
   null,
-  { showNewCard,addNewCard }
+  { showNewCard, addNewCard }
 )(AddNewCard);

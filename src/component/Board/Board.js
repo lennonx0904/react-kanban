@@ -8,6 +8,7 @@ import BoardTitle from "./BoardTitle";
 import Card from "../Card";
 import AddNewCard from "../Backlog/AddNewCard";
 import "./board.css";
+import "../Backlog/backlog.css"
 // import plus from "../../img/plus.png";
 
 const dropTarget = {
@@ -40,7 +41,7 @@ const collect = (connect, monitor) => {
 
 class Board extends React.Component {
   render() {
-    const { cards, status, connectDropTarget } = this.props;
+    const { cards, status, connectDropTarget, showNewCard } = this.props;
     return connectDropTarget(
       <div className="board-wrapper px-xl-3 px-md-2 mt-2">
         <div className="board container-fluid p-2 rounded-lg overflow-auto max-vh-60">
@@ -57,7 +58,7 @@ class Board extends React.Component {
                 />
               );
             })}
-            {status === "backlog" ? <AddNewCard /> : null}
+            {status === "backlog" && showNewCard ? <AddNewCard /> : null}
           </div>
         </div>
       </div>
@@ -66,7 +67,7 @@ class Board extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { cards: state.cards };
+  return { cards: state.cards, showNewCard: state.showNewCard };
 };
 
 export default compose(

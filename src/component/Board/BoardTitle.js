@@ -1,13 +1,30 @@
 import React from "react";
+import { connect } from "react-redux";
+import { showNewCard } from "../../actions";
 import plus from "../../img/plus.png";
 
-const BoardTitle = props => {
-  return (
-    <div className="board-title center-justify d-flex flex-column justify-content-center align-items-center">
-      {props.boardTitle}
-      {props.boardTitle === "BACKLOG" ? <img className="add-card-mobile" src={plus} alt="" /> : null}
-    </div>
-  );
-};
+class BoardTitle extends React.Component {
+  render() {
+    const { boardTitle, showNewCard } = this.props;
+    return (
+      <div className="board-title center-justify d-flex flex-column justify-content-center align-items-center">
+        {boardTitle}
+        {boardTitle === "BACKLOG" ? (
+          <img
+            className="add-card-mobile"
+            src={plus}
+            alt=""
+            onClick={() => {
+              showNewCard(true);
+            }}
+          />
+        ) : null}
+      </div>
+    );
+  }
+}
 
-export default BoardTitle;
+export default connect(
+  null,
+  { showNewCard }
+)(BoardTitle);
