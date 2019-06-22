@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ec83658d960c53b0a072d88d7d3c1ffc",
+    "revision": "8441d775a2812b4c4bb420fcff49e421",
     "url": "/react-kanban/index.html"
   },
   {
-    "revision": "1ba734cc5b4129250af0",
-    "url": "/react-kanban/static/css/main.63a652dd.chunk.css"
+    "revision": "205d3fddd08f60eb7bae",
+    "url": "/react-kanban/static/css/main.0c03d139.chunk.css"
   },
   {
     "revision": "fbdd600d76cfa86be4dc",
     "url": "/react-kanban/static/js/2.fc7831cb.chunk.js"
   },
   {
-    "revision": "1ba734cc5b4129250af0",
-    "url": "/react-kanban/static/js/main.381d7aae.chunk.js"
+    "revision": "205d3fddd08f60eb7bae",
+    "url": "/react-kanban/static/js/main.bafb3849.chunk.js"
   },
   {
     "revision": "2552bfe471c686e65fe7",
