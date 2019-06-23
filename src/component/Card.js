@@ -27,7 +27,7 @@ class Card extends React.Component {
   render() {
     const { id, index, title, status, connectDragSource } = this.props;
     return connectDragSource(
-      <div className="card py-1 my-2" key={id} index={index}>
+      <div className="card py-1 my-2" key={id} index={index} status={status}>
         <div>
           {title}
           <button

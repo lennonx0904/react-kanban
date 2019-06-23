@@ -28,7 +28,9 @@
   height: fit-content;
   min-width: 150px;
   margin: 0 4px;
-  width: 19%;
+  /* width: 19%; */
+  width: calc(20% - 3rem);
+  /* width: 20%; */
 }
 
 .add-card {

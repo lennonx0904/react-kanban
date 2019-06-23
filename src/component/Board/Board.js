@@ -31,7 +31,7 @@ class Board extends React.Component {
     const { cards, status, connectDropTarget, showNewCard } = this.props;
     return connectDropTarget(
       <div className="board-wrapper px-xl-3 px-md-2 mt-2">
-        <div className="board container-fluid p-2 rounded-lg overflow-auto max-vh-60">
+        <div className="board  p-2 rounded-lg overflow-auto max-vh-60">
           <BoardTitle boardTitle={status.toUpperCase()} />
           <div className="card-list">
             {cards[status].map((card, index) => {

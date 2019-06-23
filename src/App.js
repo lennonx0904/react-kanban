@@ -22,7 +22,7 @@ class App extends React.Component {
         <Nav />
         <div className="view">
           <div className="view-wrapper">
-            <div className="boards-wrapper container-fluid d-flex flex-wrap justify-content-around">
+            <div className="boards-wrapper d-flex flex-wrap justify-content-between">
               {cardStatus.map(status => {
                 return <Board key={status} status={status} />;
               })}
